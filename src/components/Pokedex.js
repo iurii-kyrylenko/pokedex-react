@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { gql, graphql } from 'react-apollo'
 import PropTypes from 'prop-types'
 import PokemonPreview from './PokemonPreview'
+import AddPokemonPreview from './AddPokemonPreview'
 
 const Title = styled.div`
   color: #7F7F7F;
@@ -48,9 +49,10 @@ class Pokedex extends React.Component {
           Hey, { Trainer.name }, there are { pokemons.length } Pokemons in your pokedex
         </Title>
         <div className='flex flex-wrap justify-center center w-75'>
-        {
-          pokemons.map(pokemon => <PokemonPreview key={pokemon.id} pokemon={pokemon} />)
-        }
+          <AddPokemonPreview trainerId={ Trainer.id } />
+          {
+            pokemons.map(pokemon => <PokemonPreview key={pokemon.id} pokemon={pokemon} />)
+          }
         </div>
       </div>
     )
