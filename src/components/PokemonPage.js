@@ -32,6 +32,7 @@ class PokemonPage extends React.Component {
     super()
     this.goBack = this.goBack.bind(this)
   }
+
   render () {
     const { data: { loading, error, Pokemon } } = this.props
     if (loading) {
@@ -43,10 +44,12 @@ class PokemonPage extends React.Component {
     return (
       <div>
         <PokemonCardHeader pokemon={ filter(PokemonCardHeader.fragments.pokemon, Pokemon) } />
-        <PokemonCard pokemon={ filter(PokemonCard.fragments.pokemon, Pokemon) } handleCancel={ this.goBack } />
+        <PokemonCard pokemon={ filter(PokemonCard.fragments.pokemon, Pokemon) }
+                     handleCancel={ this.goBack } afterChange={ this.goBack } />
       </div>
     )
   }
+
   goBack () {
     this.props.history.replace('/')
   }

@@ -62,8 +62,9 @@ class Pokedex extends React.Component {
 const PokedexWithData = graphql(TrainerQuery, {
   options: {
     variables: {
-      name: "Iurii Kyrylenko"
-    }
+      name: 'Iurii Kyrylenko'
+    },
+    fetchPolicy: 'network-only'
   }
 })(Pokedex)
 

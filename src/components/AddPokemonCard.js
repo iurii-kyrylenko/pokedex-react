@@ -32,12 +32,7 @@ const Card = styled.div`
 const AddPokemonMutation = gql`
   mutation AddPokemon($trainerId: ID, $name: String, $url: String) {
     createPokemon(name: $name, url: $url, trainerId: $trainerId) {
-      trainer {
-        id
-        ownedPokemons {
-          id
-        }
-      }
+      id
     }
   }
 `
