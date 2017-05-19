@@ -17,7 +17,7 @@ npm start
 http://localhost:3000/
 ```
 
-### [The commit history reflects the tutorial steps](commits/master)
+### The commit history reflects the tutorial steps
 
 ### License
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
