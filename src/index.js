@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Pokedex from './components/Pokedex'
 import PokemonPage from './components/PokemonPage'
 import AddPokemonCard from './components/AddPokemonCard'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import {
   ApolloClient,
   ApolloProvider,
@@ -22,11 +22,12 @@ const client = new ApolloClient({ networkInterface, dataIdFromObject })
 ReactDOM.render((
   <ApolloProvider client={ client }>
     <BrowserRouter>
-      <div>
-        <Route exact path="/" component={ Pokedex } />
+      <Switch>
+        <Route exact path="/:page([1-9][0-9]*)" component={ Pokedex } />
         <Route path="/view/:pokemonId" component={ PokemonPage } />
         <Route path="/create/:trainerId" component={ AddPokemonCard } />
-      </div>
+        <Redirect from="*" to="/1" />
+      </Switch>
     </BrowserRouter>
   </ApolloProvider>
   ),
